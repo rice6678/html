@@ -1,31 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <title>Password</title>
-   <style>
-     body {
-     background-color: lightblue;
-     padding:30px;
-}
-</style>
-<script>
-    function checkPassword(){
-        var password = document.getElementById("passwordBox");
-        var passwordText = password.value;
-        if(passwordText=="Ernest300"){
-            return true;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Monk Diamond </title>
+    <style>
+
+        body{
+            margin: 0px;
         }
-        alert("Acess denied! Incorrect password!");
-        return false;
-    }
-</script>
+        .pad{
+            padding: 25px;
+            }
+        .header {   
+            background-color: lightblue;
+            color: green;
+            height: 100px;
+            font-size: 36pt;
+            text-align: center;
+        }
+        .welcome{
+            background-color:plum;
+            color:wwhite;
+            font-size:16pt;
+            text-align:center;
+            height:40px;
+            margin:0px;
+        }
+        .main-text{
+            width:60%;
+            float:left;
+            background-color:beige;
+        }
+    </style>
+
 </head>
+
 <body>
-    <p style="font-size: 30pt;">THE MONK DIAMOND DISCOVERY</p>
-    <p>Please enter the password to view this websit.</p>
-    <p>Password:<input id="passwordBox" type="password"/></p>
-    <a href="monk.html" onclick="return checkPassword();"> 
-        Click here to submit password and view website
-    </a>
+    <div class="header pad">
+        The Monk Diamond Discovery
+
+    </div>
+    <div>
+        <p class="welcome">
+            stolen diamond discovered in Siberia!
+        </p>
+    </div>
+    <div class="main-text pad">
+        <p>
+            professor bairstone and dr.day have made a sensational discovery.<br/>
+            they have discovered the monk diamond in s remote cave in siberia.<br/>
+            Professor bairstone's dog ernest, sniffed out the diamond.
+        </p>
+        <p>
+            the jewl was stolen three years ago from the house of volkov.<br/>
+            the prime suspects in the theft were the bond brothers.<br/>
+            the team thinks the diamond had been hidden by the theives.<br/>
+            they sent this photo from their camp:
+        </p>
+        <img src="Monk.jfif" alt="diamond" style="height:150px;"/>
+    </div>
+    <div style="clear:both;"></div>
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/RcZATf3Lmb0" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <br>
+    <hr>
+    <iframe width='450px' height="450px" frameborder="0px" style="border:0px"
+    src="https://www.daum.net/"></iframe>
+
+ <!-- 자바스크립 사용 예제 : 해야 할 목록(추가, 삭제)-->
+ <div>
+    <h2>Moving To-Do List</h2>
+    <input id="box" type="text" value="Type here to add a task"> &nbsp; &nbsp; &nbsp;
+    <input type="button" value="Add item" onclick="addItem();" style="background-color: pink;">
+    <br> <br>
+    <div id="list" style="background-color: aqua;"></div>
+    <br> <br>
+
+    <script>
+        function addItem() {
+            var newItem = document.createElement("div");
+            newItem.innerHTML = document.getElementById("box").value;
+            newItem.onclick = removeItem;
+            document.getElementById("list").appendChild(newItem);
+        }
+        function removeItem() {
+            document.getElementById("list").removeChild(this);
+        }
+    </script>
+</div>
+<div>
+    <br> <hr>
+    <h2>Where to move the Diamond</h2>
+
+    <!-- 라디오 버튼을 이용하여 목적지 변경하기 -->
+    <div>
+        <input type="radio" name="city" value="Lisbon" checked="true"> Lisbon
+        <input type="radio" name="city" value="Paris"> Paris
+        <input type="radio" name="city" value="London"> London
+        <input type="radio" name="city" value="Rome"> Rome
+        <input type="radio" name="city" value="Berlin">Germany
+        <input type="radio" name="city" value="Istanbul"> Istanbul
+        &nbsp; &nbsp; &nbsp;
+        <input type="button" value="submit" onclick="change();" style="background-color: pink;">
+        <br>
+    </div>
+
+    <iframe id="iframe_id" width="650" height="450" style="margin:30px; border:0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc&amp;origin=Moscow&amp;destination=Lisbon">
+    </iframe>
+
+    <!-- 자바스크립트를 이용하여 목적지 변경하기 -->
+    <script>
+        keyValue = "AIzaSyB3GOyRWLUqiI_AwgQV9cpDFM4LSCr3Hxc";
+        function change() {
+            var desCity = document.getElementsByName("city");
+            for (var i = 0; i < desCity.length; i++) {
+                if (desCity[i].checked == true) {
+                    var des = document.getElementById("iframe_id");
+                    des.src = `https://www.google.com/maps/embed/v1/directions?key=${keyValue}&origin=Moscow&destination=${desCity[i].value}`
+                }
+            }
+        }
+    </script>
+</div>
+
 </body>
+
+
+
+
 </html>
